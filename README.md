@@ -1,6 +1,6 @@
 # 🎮 Qizil Hudud
 
-Qizil Hudud is a story-driven RPG built with Unreal Engine, inspired by the rich mythology and cultural heritage of Uzbekistan. Players explore a mysterious Red Zone filled with ancient secrets, tactical combat, and immersive quests.
+Qizil Hudud is a story-driven RPG built with Unreal Engine, inspired by the rich mythology and cultural heritage of Uzbekistan. Players explore a mysterious Red Zone filled with ancient secrets, tactical combat, and immersive quests. Info-video (https://drive.google.com/drive/folders/1puhjfChj36kWLAjmNT_4b2MEfDpxT7ed?usp=sharing)
 
 ---
 
