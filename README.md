@@ -46,6 +46,7 @@ Qizil Hudud is a story-driven RPG built with Unreal Engine, inspired by the rich
 Developer: [Mukhammadbobur]  
 Website: [https://milliybiz.com](https://qizil-hudud.milliybiz.uz/)  
 Number: +998 33 500 33 05
+
 Email: info.mukhammadbobur@mail.com
 
 ---
