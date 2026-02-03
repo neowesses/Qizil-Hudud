@@ -18,8 +18,8 @@ Qizil Hudud is a story-driven RPG built with Unreal Engine, inspired by the rich
 
 > ⚠️ The game build is approximately 4 GB — hosted externally due to GitHub file size limits.
 
-- [🔗 Download for Windows (ZIP)](https://drive.google.com/drive/folders/1GnDFUyceRZAilmkRGIKrrbHG2oMOSOr4?usp=sharing)  
-- Unzip the archive  
+- [🔗 Download for Windows (ZIP)](https://drive.google.com/file/d/1vVGfptMVYtZZ1c2VdlOecfJ8ToCv8W96/view) (4.7 GB) 
+- Unzip the archive 
 - Run QizilHudud.exe  
 - Enjoy the game!
 
@@ -34,7 +34,7 @@ Qizil Hudud is a story-driven RPG built with Unreal Engine, inspired by the rich
 
 ## 🛠 Technical Details
 
-- Unreal Engine 5.3  
+- Unreal Engine 5.5
 - Blueprint-only implementation  
 - Full HD support (1920x1080)  
 - Architecture ready for multiplayer and future expansions
