@@ -113,6 +113,7 @@ function sizeCanvas() {
   const dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1.5 : 2);
   canvas.width = Math.round(canvas.clientWidth * dpr);
   canvas.height = Math.round(canvas.clientHeight * dpr);
+  lastDrawn = -1;                 // смена размера очищает canvas — перерисовываем кадр
   renderHero();
 }
 
@@ -146,6 +147,7 @@ function initHero() {
   document.querySelectorAll('.hero__line').forEach((l) => splitChars(l));
   if (!reduceMotion) { gsap.set('.hero__title .char', { color: 'rgba(179,0,0,0)' }); document.querySelector('.hero__script').classList.add('is-masked'); }
   window.addEventListener('resize', sizeCanvas);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) { lastDrawn = -1; renderHero(); } });
 
   gsap.to(seq, {
     frame: FRAME_COUNT - 1,
