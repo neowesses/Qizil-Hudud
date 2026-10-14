@@ -9,7 +9,13 @@ TOKEN="${1:-}"
 CHAT="6508479737"
 DOMAIN="qizil-hudud.milliybiz.uz"
 SNIP="/etc/nginx/qizil-hudud-tg.conf"
-[[ "$TOKEN" =~ ^[0-9]{6,}:[A-Za-z0-9_-]{30,}$ ]] || { echo "!! Токен не похож на токен бота"; exit 1; }
+BOT_ID="6698641894"   # @milliybizbot
+if ! [[ "$TOKEN" =~ ^[0-9]{6,}:[A-Za-z0-9_-]{30,}$ ]]; then
+  echo "== 0/4 Ищу токен @milliybizbot в настройках сервера"
+  TOKEN=$(grep -rhoIE "${BOT_ID}:[A-Za-z0-9_-]{30,}" /etc /opt /root /var/www /home /srv 2>/dev/null | sort | uniq -c | sort -rn | awk 'NR==1{print $2}' || true)
+fi
+[[ "$TOKEN" =~ ^[0-9]{6,}:[A-Za-z0-9_-]{30,}$ ]] || { echo "!! Токен бота не найден — вставьте его в поле BOT_TOKEN"; exit 1; }
+echo "   токен найден (…${TOKEN: -4})"
 
 echo "== 1/4 Записываю настройку пересылки"
 umask 077
