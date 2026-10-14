@@ -9,10 +9,11 @@
 const DOWNLOAD_URL = 'https://drive.google.com/drive/folders/1GnDFUyceRZAilmkRGIKrrbHG2oMOSOr4?usp=drive_link';
 
 // Telegram-бот для заявок COMMERCIAL OFFERS (инструкция — в README.txt)
-const TELEGRAM_BOT_TOKEN = '';   // токен НЕ хранится в публичном репозитории — см. README
+const TELEGRAM_BOT_TOKEN = '';   // токен хранится только на сервере (nginx /api/tg)
 const TELEGRAM_CHAT_ID = '6508479737';   // ваш чат с ботом
 
 // Безопасная отправка через сервер (api/lead.php, токен скрыт). Пусто — отправка напрямую в Telegram.
+const LEAD_PROXY = '/api/tg';   // nginx на сервере пересылает заявку в Telegram (токен хранится только на сервере)
 const LEAD_ENDPOINT = '';   // например: 'api/lead.php' (см. README.txt, «Безопасность»)
 
 // Кадры 3D-скролла (website-photo: fire.0070 … fire.0140 → 001 … 071)
@@ -300,6 +301,11 @@ async function sendLead(data, text, form) {
     if (!r.ok) throw new Error('lead');
     return;
   }
+  if (!TELEGRAM_BOT_TOKEN && LEAD_PROXY) {
+    const r = await fetch(LEAD_PROXY, { method: 'POST', body: new URLSearchParams({ text }) });
+    if (!r.ok) throw new Error('proxy');
+    return;
+  }
   if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) throw new Error('not configured');
   const body = new URLSearchParams({ chat_id: TELEGRAM_CHAT_ID, text });
   const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
@@ -383,15 +389,18 @@ function initDownloadGate() {
     }
     status.textContent = 'Sending…';
     form.querySelector('.dl__submit').disabled = true;
-    try {
-      await sendLead({ type: 'download', first: f, last: l, phone: phone.value }, `🎮 QIZIL HUDUD — СКАЧИВАНИЕ ИГРЫ\nИмя: ${f}\nФамилия: ${l}\nТелефон: ${phone.value}\nДата: ${nowTashkent()}\nУстройство: ${deviceName()}`, form);
-      store.set('qh_dl_ok', '1');
+    const openAccess = () => {
       dl.querySelector('.dl__name').textContent = f.toUpperCase();
       form.hidden = true; done.hidden = false;
       gsap.from(done, { opacity: 0, y: 10, duration: 0.5, ease: 'power3.out' });
       dl.querySelector('.dl__go').focus();
+    };
+    try {
+      await sendLead({ type: 'download', first: f, last: l, phone: phone.value }, `🎮 QIZIL HUDUD — СКАЧИВАНИЕ ИГРЫ\nИмя: ${f}\nФамилия: ${l}\nТелефон: ${phone.value}\nДата: ${nowTashkent()}\nУстройство: ${deviceName()}`, form);
+      store.set('qh_dl_ok', '1');
+      openAccess();
     } catch (err) {
-      status.textContent = 'Could not send. Check the internet and try again.';
+      openAccess();   // скачивание не должно зависеть от бота — доступ открываем в любом случае
     } finally {
       form.querySelector('.dl__submit').disabled = false;
     }
