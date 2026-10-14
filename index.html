@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QIZIL HUDUD — Another day in the Red Zone | MilliyBiz</title>
+  <meta name="description" content="Qizil Hudud — the first Battle Royale and RPG game from Uzbekistan by MilliyBiz, built on Unreal Engine. Free to play.">
+  <meta name="theme-color" content="#830101">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="QIZIL HUDUD — Another day in the Red Zone">
+  <meta property="og:description" content="The first Battle Royale and RPG game from Uzbekistan by MilliyBiz. Free to play.">
+  <meta property="og:url" content="https://qizil-hudud.milliybiz.uz/">
+  <meta property="og:site_name" content="QIZIL HUDUD">
+  <meta property="og:image" content="https://qizil-hudud.milliybiz.uz/assets/img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://qizil-hudud.milliybiz.uz/assets/img/og.jpg">
+  <link rel="canonical" href="https://qizil-hudud.milliybiz.uz/">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"VideoGame","name":"QIZIL HUDUD","url":"https://qizil-hudud.milliybiz.uz/",
+   "description":"The first Battle Royale and RPG game from Uzbekistan, built on Unreal Engine.",
+   "genre":["Battle Royale","RPG"],"gamePlatform":["PC","PlayStation 5"],"image":"https://qizil-hudud.milliybiz.uz/assets/img/og.jpg",
+   "publisher":{"@type":"Organization","name":"MilliyBiz","email":"info.milliybiz@gmail.com","telephone":"+998335003305"},
+   "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg?v=2">
+  <link rel="preload" href="assets/fonts/BaseBloom-Regular.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=19">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
+  <script src="main.js?v=19" defer></script>
+</head>
+<body class="is-loading">
+
+  <!-- ===== Экран загрузки (Figma: страница loading, 14:124) ===== -->
+  <div class="loader" role="status" aria-live="polite" aria-label="Loading">
+    <svg class="loader__m" width="280" height="172" viewBox="0 0 280 172" fill="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="loaderGrad" x1="140" y1="1" x2="140" y2="158" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#730000"/><stop offset="1"/>
+        </linearGradient>
+      </defs>
+      <path class="loader__m-path" d="M61.8262 0.5V39.5176L102.963 0.636719L103.107 0.5H170.663V39.5176L211.8 0.636719L211.944 0.5H279.5V171.5H218.174V58.2744H170.663V171.5H109.337V58.2744H61.8262V171.5H0.5V0.5H61.8262Z" stroke="url(#loaderGrad)"/>
+    </svg>
+    <div class="loader__track"><span class="loader__fill"></span></div>
+    <p class="loader__text">LOADING<span class="loader__dots"><i>.</i><i>.</i><i>.</i></span></p>
+  </div>
+
+  <!-- ===== Курсор (фрейм «мышка при наведении») ===== -->
+  <div class="cursor" aria-hidden="true">
+    <div class="cursor__lens"></div>
+    <span class="cursor__label"></span>
+  </div>
+
+  <!-- ===== Шапка — статичная до конца страницы ===== -->
+  <header class="header">
+    <div class="header__inner">
+      <a class="header__logo" href="#top" aria-label="Qizil Hudud — to top">
+        <img src="assets/icons/favicon.svg" alt="MilliyBiz" width="67" height="56">
+      </a>
+      <nav class="header__nav" aria-label="Main">
+        <button class="nav-link" type="button" data-soon><span class="roll" data-text="MILLIYBIZ.TV">MILLIYBIZ.TV</span></button>
+        <button class="nav-link" type="button" data-soon><span class="roll" data-text="CRM">CRM</span></button>
+        <button class="nav-link" type="button" data-soon><span class="roll" data-text="NEWS MILLIYBIZ">NEWS MILLIYBIZ</span></button>
+      </nav>
+      <a class="btn-free" data-download href="#" target="_blank" rel="noopener" data-cursor="PLAY">
+        <span class="roll" data-text="FREE TO PLAY">FREE TO PLAY</span>
+      </a>
+      <button class="header__burger" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+    <div class="mobile-menu" hidden>
+      <button class="nav-link" type="button" data-soon>MILLIYBIZ.TV</button>
+      <button class="nav-link" type="button" data-soon>CRM</button>
+      <button class="nav-link" type="button" data-soon>NEWS MILLIYBIZ</button>
+      <a class="btn-free btn-free--big" data-download href="#" target="_blank" rel="noopener"><span>FREE TO PLAY</span></a>
+    </div>
+  </header>
+  <div class="soon-toast" aria-live="polite"><span>SOON</span></div>
+
+  <!-- ===== Форма перед скачиванием (заявка уходит в Telegram-бот) ===== -->
+  <div class="dl" hidden>
+    <div class="dl__backdrop" data-dl-close></div>
+    <div class="dl__panel" role="dialog" aria-modal="true" aria-labelledby="dl-title">
+      <button class="dl__close" type="button" data-dl-close aria-label="Close"><span></span><span></span></button>
+      <p class="dl__script">free to play</p>
+      <h2 class="dl__title" id="dl-title">DOWNLOAD QIZIL HUDUD</h2>
+      <form class="dl__form" novalidate>
+        <p class="dl__sub">Fill in the form to get access to the download.</p>
+        <label class="dl__field"><span>FIRST NAME</span><input name="first" type="text" autocomplete="given-name" maxlength="40" placeholder="Name"></label>
+        <label class="dl__field"><span>LAST NAME</span><input name="last" type="text" autocomplete="family-name" maxlength="40" placeholder="Surname"></label>
+        <label class="dl__field"><span>PHONE NUMBER</span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+998 (__) ___-__-__"></label>
+        <button class="btn-free dl__submit" type="submit" data-cursor="GO"><span>GET ACCESS</span></button>
+        <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="dl__status" role="status"></p>
+      </form>
+      <div class="dl__done" hidden>
+        <p class="dl__ok">THANK YOU, <span class="dl__name"></span>!</p>
+        <p class="dl__sub">Access is open. Press the button to download the game.</p>
+        <a class="btn-free dl__go" href="#" target="_blank" rel="noopener" data-cursor="PLAY"><span>DOWNLOAD</span></a>
+      </div>
+    </div>
+  </div>
+
+  <main id="top">
+    <!-- ===== 1m · HERO для телефона (как на qizil-hudud.milliybiz.uz) ===== -->
+    <section class="mhero" aria-label="Another day in the Red Zone">
+      <img class="mhero__bg" src="assets/img/hero-mobile.webp" alt="" width="1920" height="970">
+      <div class="mhero__center">
+        <p class="mhero__script">another day</p>
+        <p class="mhero__title">IN THE RED ZONE</p>
+      </div>
+      <div class="mhero__info">
+        <div class="mhero__row"><p class="mhero__qizil">QIZIL HUDUD</p><p>owner mukhammadbobur</p><p>product milliybiz</p></div>
+        <p>"Milliy Biz" is a company that promotes national values and Uzbek culture. "Qadriyat" is a system of values that determines people's view of the world and their attitude to life.</p>
+      </div>
+    </section>
+
+    <!-- ===== 1 · HERO: 3D scroll — кадры собираются при прокрутке ===== -->
+    <section class="hero" aria-label="Another day in the Red Zone">
+      <div class="hero__sticky">
+        <canvas class="hero__canvas" aria-hidden="true"></canvas>
+        <div class="hero__shade" aria-hidden="true"></div>
+        <h1 class="hero__heading" aria-label="QIZIL HUDUD — another day in the Red Zone">
+          <span class="hero__script" aria-hidden="true">another day</span>
+          <span class="hero__title" aria-hidden="true"><span class="hero__line">IN THE</span><span class="hero__line">RED ZONE</span></span>
+        </h1>
+        <div class="hero__info">
+          <p class="hero__qizil">qizil hudud</p>
+          <p class="hero__owner">owner mukhammadbobur</p>
+          <p class="hero__product">product milliybiz</p>
+          <p class="hero__about">"Milliy Biz" is a company that promotes national values and Uzbek culture. "Qadriyat" is a system of values that determines people's view of the world and their attitude to life.</p>
+        </div>
+        <img class="hero__zaman" src="assets/icons/zaman.svg" alt="Zaman" width="240" height="56">
+        <div class="hero__progress" aria-hidden="true"><span class="hero__progress-bar"></span><span class="hero__frame">01</span><span class="hero__total">/ 71</span></div>
+        <div class="hero__scroll" aria-hidden="true"><span></span>SCROLL</div>
+      </div>
+    </section>
+
+    <!-- ===== Бегущая строка ===== -->
+
+    <!-- ===== 3 · О ИГРЕ ===== -->
+    <section class="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="about__head">
+          <div class="about__text">
+            <h2 class="about__title" id="about-title" data-split-lines>QIZIL HUDUD BY MILLIYBIZ</h2>
+            <p class="about__desc" data-split-lines>MilliyBiz is the leader of the gaming industry in Uzbekistan, presenting the first game in the Battle Royale and RPG genres in the country. Our game is developed on the modern Unreal Engine, which provides stunning graphics, realistic physics and unprecedented interactivity of the gameplay. Dive into a world where your mission is to survive, explore and conquer. Vast locations, unique characters, a development system and exciting battles await you. We combined the depth of RPG and the dynamics of Battle Royale to offer you an unforgettable experience and unique gameplay. Created using the latest technology, our game is available on Steam and PS5 platforms, making it accessible to a wide audience. Diving into the game is the beginning of an adventure you will remember for a long time. Our first game is a new chapter in the history of gaming in Uzbekistan, and it is already waiting for you.</p>
+          </div>
+          <ul class="platforms" aria-label="Platforms">
+            <li class="platforms__epic"><img src="assets/icons/epic.svg" alt="Epic Games" width="55" height="64"></li>
+            <li class="platforms__steam"><img src="assets/icons/steam-h.svg" alt="Steam" width="151" height="64"></li>
+            <li class="platforms__ps5"><img src="assets/icons/ps5-h.svg" alt="PlayStation 5" width="223" height="79"></li>
+          </ul>
+        </div>
+
+        <ul class="cards" aria-label="Videos">
+          <li class="card"><a class="card__link" href="https://youtu.be/lnNGIugxu9E?si=2QdRwGRCOkuD4dqs" target="_blank" rel="noopener" data-cursor="WATCH" aria-label="Watch video 1 on YouTube">
+            <img class="card__img card__img--1" src="assets/img/card-1.webp" alt="" loading="lazy" width="1600" height="900">
+            <img class="card__play" src="assets/icons/play.svg" alt="" width="51" height="49"></a></li>
+          <li class="card"><a class="card__link" href="https://youtu.be/ygW3_5KMTEY?si=Vu0BMl0t4REzdLDv" target="_blank" rel="noopener" data-cursor="WATCH" aria-label="Watch video 2 on YouTube">
+            <img class="card__img card__img--2" src="assets/img/card-2.webp" alt="" loading="lazy" width="1600" height="900">
+            <img class="card__play" src="assets/icons/play.svg" alt="" width="51" height="49"></a></li>
+          <li class="card"><a class="card__link" href="https://youtu.be/jX3wJdYOnSk?si=HFOHMKgZ8hiKqRU4" target="_blank" rel="noopener" data-cursor="WATCH" aria-label="Watch video 3 on YouTube">
+            <img class="card__img card__img--3" src="assets/img/card-3.webp" alt="" loading="lazy" width="1600" height="900">
+            <img class="card__play" src="assets/icons/play.svg" alt="" width="51" height="49"></a></li>
+          <li class="card"><a class="card__link" href="https://youtu.be/kuVxX46wxTA?si=3PuAsWbiJwSZ5vMF" target="_blank" rel="noopener" data-cursor="WATCH" aria-label="Watch video 4 on YouTube">
+            <img class="card__img card__img--4" src="assets/img/card-4.webp" alt="" loading="lazy" width="1600" height="900">
+            <img class="card__play" src="assets/icons/play.svg" alt="" width="51" height="49"></a></li>
+        </ul>
+
+        <div class="about__bottom">
+          <div class="unreal">
+            <img class="unreal__logo" src="assets/icons/unreal.svg" alt="Unreal Engine" width="110" height="110" loading="lazy">
+            <div>
+              <h3 class="unreal__title" data-split-lines>UNREAL ENGINE</h3>
+              <p class="unreal__text" data-split-lines>Unreal Engine is a versatile 3D creation tool by Epic Games, enabling developers to create games, films, animations, and more with features like Nanite and Lumen for stunning visuals.</p>
+            </div>
+          </div>
+          <form class="offers" novalidate>
+            <label class="offers__title" for="phone">COMMERCIAL OFFERS <img src="assets/icons/corner.svg" alt="" width="10" height="10"></label>
+            <div class="offers__field">
+              <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+998 (__) ___-__-__" aria-describedby="offers-status">
+              <button class="offers__send" type="submit" aria-label="Send" data-cursor="SEND">
+                <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M4 14 L14 4 M6 4 H14 V12" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+              </button>
+            </div>
+            <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <p class="offers__status" id="offers-status" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 4 · Финал + футер ===== -->
+    <section class="final" aria-labelledby="final-title">
+      <p class="final__script">another day</p>
+      <h2 class="final__title" id="final-title"><span data-split-chars>IN THE</span><span data-split-chars>RED ZONE</span></h2>
+      <a class="btn-free btn-free--hero" data-download href="#" target="_blank" rel="noopener" data-cursor="PLAY">
+        <span class="roll" data-text="FREE TO PLAY">FREE TO PLAY</span>
+      </a>
+      <div class="final__ornament" aria-hidden="true"><img src="assets/img/ornament.webp" alt="" width="1883" height="1055" ></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <p class="footer__title" data-split-lines>QADRIYAT VA MADANIYAT TARG‘IB QILUVCHI KOMPANIYA</p>
+      <ul class="footer__social">
+        <li><a href="https://www.instagram.com/milliybiz" target="_blank" rel="noopener"><span class="roll" data-text="INSTAGRAM">INSTAGRAM</span></a></li>
+        <li><a href="https://t.me/+7-GzSZSZ9m1iOWY6" target="_blank" rel="noopener"><span class="roll" data-text="TELEGRAM">TELEGRAM</span></a></li>
+        <li><a href="https://www.facebook.com/bizmilliy" target="_blank" rel="noopener"><span class="roll" data-text="FACEBOOK">FACEBOOK</span></a></li>
+      </ul>
+      <p class="footer__legal">Воспроизводство, копирование, тиражирование, распространение и иное использование информации с сайта «milliybiz.uz» возможно только с предварительного письменного разрешения редакции. Электронная регистрация: №000000 от 00 января 2025 года. Учредитель: ООО «Milliybiz» Главный редактор: Одылов Мухаммад Бобур Адрес: 100007, Ташкент, ул. Паркент, 26А Почта: info.milliybiz@gmail.com</p>
+      <span class="badge18">18+</span>
+      <a class="footer__phone" href="tel:+998335003305"><span class="roll" data-text="+998 (33) 500 33 05">+998 (33) 500 33 05</span></a>
+      <a class="footer__mail" href="mailto:info.milliybiz@gmail.com"><span class="roll" data-text="INFO.MILLIYBIZ@GMAIL.COM">INFO.MILLIYBIZ@GMAIL.COM</span></a>
+      <p class="footer__copy">SINCE 2020© MILLIYBIZ</p>
+    </div>
+  </footer>
+</body>
+</html>
