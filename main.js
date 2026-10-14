@@ -400,7 +400,7 @@ function initDownloadGate() {
       store.set('qh_dl_ok', '1');
       openAccess();
     } catch (err) {
-      openAccess();   // скачивание не должно зависеть от бота — доступ открываем в любом случае
+      status.textContent = 'Could not send. Please try again in a moment.';   // скачать можно только после отправки заявки
     } finally {
       form.querySelector('.dl__submit').disabled = false;
     }
